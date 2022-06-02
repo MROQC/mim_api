@@ -11,12 +11,11 @@ Logging is used for errors and output to console.
 """
 
 import csv
+import os
 import mim_api
 import logging
 import sys
 
-# file path for the csv file with nids workflows and patient lists
-file_path = str(sys.argv[1])
 
 
 def read_params(csv_file):
@@ -51,4 +50,9 @@ def run_workflow(csv_dict):
 
 
 if __name__ == '__main__':
+    # file path for the csv file with nids workflows and patient lists
+    file_path = str(sys.argv[1])
+    if os.environ.get('token', None) is None:
+        logging.error("set a token")
+        exit(1)
     run_workflow(read_params(file_path))
