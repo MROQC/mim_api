@@ -66,6 +66,8 @@ def make_request(method, path, data=None):
         res = requests.get(url, json=data, headers=headers, verify='./MIM_Software_Root_CA.cer')
     if res.status_code != 200:
         # raise Exception(res.raise_for_status())
+        # test
+        print("the code is not 200. something wrong with the request itself")
         raise Exception(res.json()['userFriendlyMessage'])
     return res
 
