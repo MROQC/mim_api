@@ -54,6 +54,8 @@ def make_request(method, path, data=None):
     :param headers:
     :return:
     """
+    if os.environ.get('token') is None:
+        print("no token recognised")
     headers = {'Authorization': f"Bearer {os.environ.get('token')}"}
     server_address = os.environ.get('server', 'localhost')
     port = os.environ.get('port', '17443')
