@@ -57,7 +57,7 @@ def make_request(method, path, data=None):
     if os.environ.get('token') is None:
         print("no token recognised")
     else:
-        print("token is recognised")
+        print("token is recognised, it is of length", len(os.environ.get('token')))
     headers = {'Authorization': f"Bearer {os.environ.get('token')}"}
     server_address = os.environ.get('server', 'localhost')
     port = os.environ.get('port', '17443')
