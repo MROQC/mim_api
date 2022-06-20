@@ -67,7 +67,8 @@ def make_request(method, path, data=None):
     if res.status_code != 200:
         # raise Exception(res.raise_for_status())
         # test
-        print("the code is not 200. something wrong with the request itself")
+        print("the code is not 200.something wrong with the request itself")
+        print(res.status_code)
         raise Exception(res.json()['userFriendlyMessage'])
     return res
 

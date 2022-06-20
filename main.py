@@ -42,7 +42,6 @@ def run_workflow(csv_dict):
         rule_input = csv_dict[dict_key][0]
         list_input = csv_dict[dict_key][1]
         try:
-            print("is this even trying?")
             mim_api.ask_mim(nid, rule_input, list_input)
             logging.info(f"The code ran on nid: {nid}")
         except Exception as e:
