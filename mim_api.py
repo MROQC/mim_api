@@ -84,6 +84,8 @@ def rpl_filter(source):
 def select_rule(rules, rule_input):
     """Return the rule ID of the selected rule."""
     for x, rule in enumerate(rules):
+        # test
+        print(x, ":", rule['ruleName'])
         if rule['ruleName'] == rule_input:
             rule_number = x
             return rules[rule_number]['ruleId']
@@ -92,6 +94,8 @@ def select_rule(rules, rule_input):
 def select_source(sources, list_input):
     """Return a source list by number."""
     for x, source in enumerate(sources):
+        # test
+        print(x, ":", source['patientListName'])
         if source['patientListName'] == list_input:
             source_number = x
             return sources[source_number]
