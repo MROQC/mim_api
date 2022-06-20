@@ -19,12 +19,18 @@ def ask_mim(nid, rule_input, list_input):
     parameters.
     """
     sources = (make_request('get', 'search-sources').json())
+    # test
+    for x, source in enumerate(sources):
+        print(x, ":", source['patientListName'])
     rpls = list(filter(rpl_filter, sources))
     if not rpls:
         print('There are no RPLs to search. '
               'Configure an RPL and try again.')
         return
     rules = (make_request('get', 'rules').json())
+    # test
+    for x, rule in enumerate(rules):
+        print(x, ":", rule['ruleName'])
     if not rules:
         print('There are no Assistant rules to run. '
               'Configure an Assistant rule and try again.')
@@ -84,8 +90,6 @@ def rpl_filter(source):
 def select_rule(rules, rule_input):
     """Return the rule ID of the selected rule."""
     for x, rule in enumerate(rules):
-        # test
-        print(x, ":", rule['ruleName'])
         if rule['ruleName'] == rule_input:
             rule_number = x
             return rules[rule_number]['ruleId']
@@ -94,8 +98,6 @@ def select_rule(rules, rule_input):
 def select_source(sources, list_input):
     """Return a source list by number."""
     for x, source in enumerate(sources):
-        # test
-        print(x, ":", source['patientListName'])
         if source['patientListName'] == list_input:
             source_number = x
             return sources[source_number]
