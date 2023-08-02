@@ -16,6 +16,7 @@ import mim_api
 import logging
 import sys
 
+logging.basicConfig(format='%(asctime)s-%(levelname)s-%(message)s', level=logging.INFO)
 
 
 def read_params(csv_file):
