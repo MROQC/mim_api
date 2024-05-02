@@ -65,9 +65,9 @@ def make_request(method, path, data=None):
     url = api_path + path
 
     if method == 'post':
-        res = requests.post(url, json=data, headers=headers, verify=False)
+        res = requests.post(url, json=data, headers=headers, verify='./MIM_Software_Root_CA.cer')
     if method == 'get':
-        res = requests.get(url, json=data, headers=headers, verify=False)
+        res = requests.get(url, json=data, headers=headers, verify='./MIM_Software_Root_CA.cer')
     if res.status_code != 200:
         # raise Exception(res.raise_for_status())
         # test
